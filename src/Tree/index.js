@@ -499,7 +499,7 @@ class Tree extends React.Component {
       circleRadius,
       allowForeignObjects,
       styles,
-      additionalClassNames
+      additionalClassNames,
     } = this.props;
     const { translate, scale } = this.state.d3;
     const subscriptions = { ...nodeSize, ...separation, depthFactor, initialDepth };
@@ -593,6 +593,7 @@ Tree.defaultProps = {
   shouldCollapseNeighborNodes: false,
   circleRadius: undefined, // TODO: DEPRECATE
   styles: {},
+  additionalClassNames: () => "",
 };
 
 Tree.propTypes = {

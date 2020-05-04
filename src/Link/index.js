@@ -132,7 +132,7 @@ export default class Link extends React.PureComponent {
 
 Link.defaultProps = {
   styles: {},
-  additionalClassNames: () => ""
+  additionalClassNames: () => "",
 };
 
 Link.propTypes = {
@@ -144,5 +144,5 @@ Link.propTypes = {
   onMouseOver: T.func.isRequired,
   onMouseOut: T.func.isRequired,
   styles: T.object,
-  additionalClassNames: T.func
+  additionalClassNames: T.func,
 };

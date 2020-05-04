@@ -111,7 +111,10 @@ export default class Link extends React.PureComponent {
   };
 
   render() {
-    const { styles } = this.props;
+    const { styles, renderPath } = this.props;
+    if (renderPath) {
+      return renderPath(this.props);
+    }
     return (
       <path
         ref={l => {
@@ -143,4 +146,5 @@ Link.propTypes = {
   onMouseOver: T.func.isRequired,
   onMouseOut: T.func.isRequired,
   styles: T.object,
+  renderPath: T.func
 };

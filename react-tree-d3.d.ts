@@ -16,6 +16,11 @@ declare module "react-tree-d3" {
 
   type ReactD3TreeTranslate = {x: number, y: number}
 
+  type ReactD3Link = {
+    source: ReactD3TreeItem;
+    target: ReactD3TreeItem;
+  }
+
   type ReactD3TreeProps = {
     data: ReactD3TreeItem[] | ReactD3TreeItem,
     nodeSvgShape?: NodeSvgShape,
@@ -30,6 +35,7 @@ declare module "react-tree-d3" {
     orientation?: "horizontal" | "vertical",
     translate?: Partial<ReactD3TreeTranslate>,
     pathFunc?: ("diagonal" | "elbow" | "straight" | "step") | ((...args: any[]) => any),
+    additionalClassNames?: (linkData: ReactD3Link) => string,
     transitionDuration?: number,
     depthFactor?: number,
     collapsible?: boolean,

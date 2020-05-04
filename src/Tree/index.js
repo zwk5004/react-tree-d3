@@ -499,6 +499,7 @@ class Tree extends React.Component {
       circleRadius,
       allowForeignObjects,
       styles,
+      renderPath
     } = this.props;
     const { translate, scale } = this.state.d3;
     const subscriptions = { ...nodeSize, ...separation, depthFactor, initialDepth };
@@ -522,6 +523,7 @@ class Tree extends React.Component {
                 onMouseOut={this.handleOnLinkMouseOutCb}
                 transitionDuration={transitionDuration}
                 styles={styles.links}
+                renderPath={renderPath}
               />
             ))}
 
@@ -613,6 +615,7 @@ Tree.propTypes = {
     y: T.number,
   }),
   pathFunc: T.oneOfType([T.oneOf(['diagonal', 'elbow', 'straight', 'step']), T.func]),
+  renderPath: T.func,
   transitionDuration: T.number,
   depthFactor: T.number,
   collapsible: T.bool,

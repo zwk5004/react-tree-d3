@@ -111,17 +111,14 @@ export default class Link extends React.PureComponent {
   };
 
   render() {
-    const { styles, renderPath } = this.props;
-    if (renderPath) {
-      return renderPath(this.props);
-    }
+    const { styles, additionalClassNames } = this.props;
     return (
       <path
         ref={l => {
           this.link = l;
         }}
         style={{ ...this.state.initialStyle, ...styles }}
-        className="linkBase"
+        className={`linkBase ${additionalClassNames(this.props.linkData)}`}
         d={this.drawPath()}
         onClick={this.handleOnClick}
         onMouseOver={this.handleOnMouseOver}
@@ -135,6 +132,7 @@ export default class Link extends React.PureComponent {
 
 Link.defaultProps = {
   styles: {},
+  additionalClassNames: () => "",
 };
 
 Link.propTypes = {
@@ -146,5 +144,5 @@ Link.propTypes = {
   onMouseOver: T.func.isRequired,
   onMouseOut: T.func.isRequired,
   styles: T.object,
-  renderPath: T.func
+  additionalClassNames: T.func,
 };

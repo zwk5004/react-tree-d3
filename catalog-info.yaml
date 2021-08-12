@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: react-tree-d3
+  annotations:
+    github.com/project-slug: zwk5004/react-tree-d3
+spec:
+  type: other
+  lifecycle: unknown
